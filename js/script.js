@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
 
   const APIKEY = 'devilMinecrafter2008';
-  const login = prompt('Вставить текст');
+  const login = prompt('Введите пароль');
 
   if(login === APIKEY) {
     console.log(login)
