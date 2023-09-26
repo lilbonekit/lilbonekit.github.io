@@ -1,5 +1,11 @@
 document.addEventListener('DOMContentLoaded', function() {
 
+  const APIKEY = 'devilMinecrafter2008';
+  const login = prompt('Вставить текст');
+
+  if(login === APIKEY) {
+    console.log(login)
+
     document.querySelector('.container').addEventListener('click', (event) => {
       if (event.target.classList.contains('phone-number')) {
         var phoneNumber = event.target.innerText.trim();
@@ -72,6 +78,11 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     generatetBtn.addEventListener('click', generateList);
-    
-    
+  }
+  
+  if(login !== APIKEY) {
+    document.querySelector('#generate').addEventListener('click', () => {
+      alert('хуй соси блять')
+    })
+  }
 });
