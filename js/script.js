@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
 
-  const APIKEY = 'devilMinecrafter2008';
+  const APIKEY = 'Creeper500 ';
   const login = prompt('Введите пароль');
 
   if(login === APIKEY) {
