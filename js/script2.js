@@ -4,6 +4,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const container = document.querySelector('.container');
     let lastFocusedElement = 0;
     let focusableElements;
+
+    // Создаем dummyInput один раз при инициализации страницы
+    const dummyInput = document.createElement('input');
+    dummyInput.style.position = 'fixed';
+    dummyInput.style.opacity = 0;
+    document.body.appendChild(dummyInput);
   
     if(login === APIKEY) {
   
@@ -30,19 +36,14 @@ document.addEventListener('DOMContentLoaded', () => {
         if (event.target.classList.contains('phone-number') && (event.type === "click" || event.key === ' ')) {
             const parent = event.target.closest('tr');
             parent.style.background = '#E7E7E7';
-            event.target.style.background = 'grey';
+            event.target.classList.add('phone-number_active');
         }
       }
   
       function copyToClipboard(text) {
-        const dummyInput = document.createElement('input');
-        dummyInput.style.position = 'fixed';
-        dummyInput.style.opacity = 0;
         dummyInput.value = text;
-        document.body.appendChild(dummyInput);
         dummyInput.select();
         document.execCommand('copy');
-        document.body.removeChild(dummyInput);
       }
   
       const textArea = document.querySelector('#textarea');
@@ -92,15 +93,48 @@ document.addEventListener('DOMContentLoaded', () => {
   
       // Удаляем предыдущий обработчик события для клавиши "Tab"
       document.removeEventListener('keydown', handleTabKey);
+      document.removeEventListener('keydown', handleCtrlKey);
   
       // Добавляем новый обработчик события для клавиши "Tab"
+      document.addEventListener('keydown', handleCtrlKey);
       document.addEventListener('keydown', handleTabKey);
+
+/*       function handleCtrlKey(event) {
+        Пидорасы блять нельзя многократно копировать текст в буфер обмена без пользовательского вмешательства
+        if (event.key === 'Control') {
+          if (!focusableElements) {
+            focusableElements = Array.from(document.querySelectorAll('.phone-number'));
+          }
+          // Предотвращаем стандартное поведение Ctrl
+          event.preventDefault();
+
+          // Получаем выделенный элемент, который содержит класс 'phone-number'
+          const focusedElement = focusableElements[lastFocusedElement];
+          if (focusedElement && focusedElement.classList.contains('phone-number')) {
+            dummyInput.value = focusedElement.innerText.trim();
+            dummyInput.select();
+            document.execCommand('copy');
+          }
+      
+           // Определяем следующий элемент для фокуса
+           let nextIndex = lastFocusedElement + 1;
+  
+           // Если достигнут конец списка элементов, переходим к первому элементу
+           if (nextIndex >= focusableElements.length) {
+             nextIndex = 0;
+           }
+   
+           // Устанавливаем фокус на следующем элементе
+           focusableElements[nextIndex].focus();
+           lastFocusedElement = nextIndex;
+        }
+      } */
+      
   
       function handleTabKey(event) {
         if (event.key === 'Tab') {
           // Предотвращаем стандартное поведение Tab
           event.preventDefault();
-
   
           // Определяем следующий элемент для фокуса
           let nextIndex = lastFocusedElement + 1;

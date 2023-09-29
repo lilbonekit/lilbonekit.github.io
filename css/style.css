@@ -25,11 +25,17 @@ li {
 }
 
 .phone-number:focus {
-  border: 2px solid #007bff;
+  /* border: 2px solid #007bff; */
   background-color: #007bff;
-  -webkit-box-shadow: 0px 4px 72px 0px rgba(219, 83, 107, 0.25);
-          box-shadow: 0px 4px 72px 0px rgba(219, 83, 107, 0.25);
   outline: none;
+}
+
+.phone-number_active {
+  background-color: grey;
+}
+
+.phone-number .phone-number_active {
+  background-color: #5da6f5;
 }
 
 .container {
