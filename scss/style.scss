@@ -16,11 +16,35 @@
     border-radius: 5px;
     padding: 5px;
   }
+  
+  li {
+    line-height: 1.5rem;
+  }
+
+  .phone-number:focus {
+    border: 2px solid #007bff;
+    background-color: #007bff;      
+    box-shadow: 0px 4px 72px 0px rgba(219, 83, 107, 0.25);
+    outline: none;
+  }
+
 
   .container {
     margin: 0 auto;
-    width: 1140px;
+    max-width: 1140px;
     padding-bottom: 50px;
+  }
+
+  ul {
+    display: flex;
+    gap: 15px;
+    flex-direction: column;
+  }
+
+  img {
+    margin: 5px 0 20px 0;
+    display: flex;
+    width: 100%;
   }
 
 
