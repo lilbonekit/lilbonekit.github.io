@@ -92,12 +92,12 @@ document.addEventListener('DOMContentLoaded', () => {
       generatetBtn.addEventListener('click', generateList);
   
       // Удаляем предыдущий обработчик события для клавиши "Tab"
-      document.removeEventListener('keydown', handleTabKey);
+      // document.removeEventListener('keydown', handleTabKey);
       document.removeEventListener('keydown', handleCtrlKey);
   
       // Добавляем новый обработчик события для клавиши "Tab"
       document.addEventListener('keydown', handleCtrlKey);
-      document.addEventListener('keydown', handleTabKey);
+      // document.addEventListener('keydown', handleTabKey);
 
 /*       function handleCtrlKey(event) {
         Пидорасы блять нельзя многократно копировать текст в буфер обмена без пользовательского вмешательства
@@ -131,8 +131,8 @@ document.addEventListener('DOMContentLoaded', () => {
       } */
       
   
-      function handleTabKey(event) {
-        if (event.key === 'Tab') {
+      function handleCtrlKey(event) {
+        if (event.key === 'Control') {
           // Предотвращаем стандартное поведение Tab
           event.preventDefault();
   
