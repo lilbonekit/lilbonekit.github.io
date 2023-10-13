@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     const APIKEY = 'Creeper500 ';
-    const login = prompt('Введите пароль');
+    // const login = prompt('Введите пароль');
     const container = document.querySelector('.container');
     let lastFocusedElement = 0;
     let focusableElements;
@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     dummyInput.style.opacity = 0;
     document.body.appendChild(dummyInput);
   
-    if(login === APIKEY) {
+    /* if(login === APIKEY) */ {
   
       // Обработчик события для клика мышью
       container.addEventListener('click', (event) => {
@@ -151,10 +151,10 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
   
-    if (login !== APIKEY) {
+/*     if (login !== APIKEY) {
       document.querySelector('#generate').addEventListener('click', () => {
         alert('хуй соси блять')
       })
-    }
+    } */
   });
   
